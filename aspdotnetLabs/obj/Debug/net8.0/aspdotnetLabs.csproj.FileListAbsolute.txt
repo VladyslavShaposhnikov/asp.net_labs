@@ -28,3 +28,4 @@ C:\Users\vlady\RiderProjects\aspdotnetLabs\aspdotnetLabs\obj\Debug\net8.0\refint
 C:\Users\vlady\RiderProjects\aspdotnetLabs\aspdotnetLabs\obj\Debug\net8.0\aspdotnetLabs.pdb
 C:\Users\vlady\RiderProjects\aspdotnetLabs\aspdotnetLabs\obj\Debug\net8.0\aspdotnetLabs.genruntimeconfig.cache
 C:\Users\vlady\RiderProjects\aspdotnetLabs\aspdotnetLabs\obj\Debug\net8.0\ref\aspdotnetLabs.dll
+C:\Users\vlady\RiderProjects\aspdotnetLabs\aspdotnetLabs\obj\Debug\net8.0\aspdotnetLabs.sourcelink.json

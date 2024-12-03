@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <h2>Calculator</h2>
+            <form action="/Calculator/Result" method="GET">
+                <div class="mb-3">
+                    <label class="form-label" for="number1">First number</label>
+                    <input class="form-control" type="number" name="number1" step="0.00001" id="num1"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="op">Operator</label>
+                    <input class="form-control" type="text" name="op" id="operator"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="number2">Second number</label>
+                    <input class="form-control" type="number" name="number2" step="0.00001" id="num2"/>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">Result</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

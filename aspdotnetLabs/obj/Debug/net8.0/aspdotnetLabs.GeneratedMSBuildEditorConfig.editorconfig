@@ -18,6 +18,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\vlady\RiderProjects\aspdotnetLabs\aspdotnetLabs
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/vlady/RiderProjects/aspdotnetLabs/aspdotnetLabs/Views/Calculator/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsY3VsYXRvclxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vlady/RiderProjects/aspdotnetLabs/aspdotnetLabs/Views/Calculator/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsY3VsYXRvclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vlady/RiderProjects/aspdotnetLabs/aspdotnetLabs/Views/Calculator/Result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsY3VsYXRvclxSZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vlady/RiderProjects/aspdotnetLabs/aspdotnetLabs/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vlady/RiderProjects/aspdotnetLabs/aspdotnetLabs/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
