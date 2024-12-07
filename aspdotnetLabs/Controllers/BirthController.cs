@@ -3,21 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace aspdotnetLabs.Controllers;
 
-public class CalculatorController : Controller
+public class BirthController : Controller
 {
     // GET
     public IActionResult Index()
     {
         return View();
     }
-    [HttpPost]
-    public IActionResult Result([FromForm]Calculator model)
+
+    public IActionResult Result(Birth model)
     {
-        if (!ModelState.IsValid)
+        if (!model.isValid())
         {
-            return View("Error");
+            return View("/Views/Shared/Error");
         }
         return View(model);
     }
 }
-

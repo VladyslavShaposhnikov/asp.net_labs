@@ -1,0 +1,16 @@
+@model Birth
+
+<h2>Birth</h2>
+<form action="/Birth/Result" method="GET">
+    <div class="mb-3">
+        <label class="form-label" for="fullName">Full name: </label>
+        <input class="form-control" type="string" name="fullName" id="fn"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="dateOfBirth">Date of birthday: </label>
+        <input class="form-control" type="date" name="dateOfBirth" id="dob"/>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>

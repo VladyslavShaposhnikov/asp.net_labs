@@ -2,14 +2,19 @@
     <div class="row justify-content-md-center">
         <div class="col-6">
             <h2>Calculator</h2>
-            <form action="/Calculator/Result" method="GET">
+            <form action="/Calculator/Result" method="POST">
                 <div class="mb-3">
                     <label class="form-label" for="number1">First number</label>
                     <input class="form-control" type="number" name="number1" step="0.00001" id="num1"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="op">Operator</label>
-                    <input class="form-control" type="text" name="op" id="operator"/>
+                    <label class="form-label" for="Operator">Operator</label>
+                    <select name="Operator">
+                        <option value="Add">+</option>
+                        <option value="Sub">&minus;</option>
+                        <option value="Mul">&times;</option>
+                        <option value="Div">&divide;</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="number2">Second number</label>

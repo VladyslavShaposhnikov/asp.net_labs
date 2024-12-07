@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\vlady\RiderProjects\aspdotnetLabs\aspdotnetLabs
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/vlady/RiderProjects/aspdotnetLabs/aspdotnetLabs/Views/Birth/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlydGhcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vlady/RiderProjects/aspdotnetLabs/aspdotnetLabs/Views/Birth/Result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlydGhcUmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vlady/RiderProjects/aspdotnetLabs/aspdotnetLabs/Views/Calculator/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsY3VsYXRvclxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
