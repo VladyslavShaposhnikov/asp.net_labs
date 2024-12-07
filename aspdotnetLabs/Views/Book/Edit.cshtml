@@ -1,0 +1,58 @@
+@model Book
+
+<form asp-action="Edit" asp-controller="Book" method="post">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Title">Book title</label>
+        <div>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Title"/>
+    </div>
+    <div>
+        <label asp-for="Author">Book Author</label>
+        <div>
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Author"/>
+    </div>
+    <div>
+        <label asp-for="Pages">Pages</label>
+        <div>
+            <span asp-validation-for="Pages" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="number" asp-for="Pages"/>
+    </div>
+    <div>
+        <label asp-for="ISBN">ISBN</label>
+        <div>
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="ISBN"/>
+    </div>
+    <div>
+        <label asp-for="PublishDate">Publish date</label>
+        <div>
+            <span asp-validation-for="PublishDate" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="date" asp-for="PublishDate"/>
+    </div>
+    <div>
+        <label asp-for="Publisher">Publisher</label>
+        <div>
+            <span asp-validation-for="Publisher" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Publisher"/>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+    <div>
+        <label asp-for="Category">Category</label>
+        <div>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Category" asp-items="@Html.GetEnumSelectList<Category>()"></select>
+    </div>
+</form>
+<a class="btn btn-info" asp-area="" asp-controller="Book" asp-action="Index">Birth</a>

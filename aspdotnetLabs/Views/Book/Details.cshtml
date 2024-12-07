@@ -1,0 +1,62 @@
+@model Book
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@Model.Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Pages
+            </th>
+            <th>
+                ISBN
+            </th>
+            <th>
+                Publisher
+            </th>
+            <th>
+                Publisher date
+            </th>
+            <th>
+                Category
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Model.Title
+            </td>
+            <td>
+                @Model.Author
+            </td>
+            <td>
+                @Model.Pages
+            </td>
+            <td>
+                @Model.ISBN
+            </td>
+            <td>
+                @Model.Publisher
+            </td>
+            <td>
+                @Model.PublishDate
+            </td>
+            <td>
+                @Model.Category
+            </td>
+        </tr>
+    </table>
+    <a class="btn btn-info" asp-area="" asp-controller="Book" asp-action="Index">Birth</a>
+</div>
+</body>
+</html>
