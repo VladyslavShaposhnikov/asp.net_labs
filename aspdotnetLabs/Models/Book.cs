@@ -23,5 +23,8 @@ public class Book
     public DateTime PublishDate { get; set; }
     [Required(ErrorMessage = "Please enter publisher")]
     public string Publisher { get; set; }
+    [Display(Name = "Book category")]
     public Category Category { get; set; }
+    [HiddenInput]
+    public DateTime Created { get; set; }
 }

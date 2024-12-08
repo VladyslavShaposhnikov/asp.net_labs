@@ -5,10 +5,15 @@ namespace aspdotnetLabs.Controllers;
 
 public class BookController : Controller
 {
-    static Dictionary<int, Book> books = new Dictionary<int, Book>();
-    public IActionResult Index()
+    private readonly IBookService _bookService;
+
+    public BookController(IBookService bookService)
     {
-        return View(books);
+        _bookService = bookService;
+    }
+   public IActionResult Index()
+    {
+        return View(_bookService.FindAll());
     }
     [HttpGet]
     public IActionResult Create()
@@ -21,37 +26,35 @@ public class BookController : Controller
     {
         if (ModelState.IsValid)
         {
-            int id = books.Keys.Count != 0 ? books.Keys.Max() : 0;
-            model.Id = id + 1;
-            books.Add(model.Id, model);
+            _bookService.Add(model);
             return RedirectToAction("Index");
         }
-        return View(model); // ponowne wyświetlenie formularza z informacjami o błędach
+        return View(model);
     }
 
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        return View(books[id]);
+        return View(_bookService.FindById(id));
     }
     [HttpPost]
     public IActionResult Edit(Book model)
     {
         if (ModelState.IsValid)
         {
-            books[model.Id] = model;
+            _bookService.Update(model);
             return RedirectToAction("Index");
         }
         else
         {
-            return View(books[model.Id]);
+            return View(_bookService.FindById(model.Id));
         };
     }
     public IActionResult Details(int id)
     {
-        if (books.Keys.Contains(id))
+        if (_bookService.Contains(id))
         {
-            return View(books[id]);
+            return View(_bookService.FindById(id));
         }
         else
         {
@@ -61,7 +64,11 @@ public class BookController : Controller
 
     public IActionResult Delete(int id)
     {
-        books.Remove(id);
-        return RedirectToAction("Index");
+        if (_bookService.Contains(id))
+        {
+            _bookService.Delete(id);
+            return RedirectToAction("Index");
+        }
+        return NotFound();
     }
 }

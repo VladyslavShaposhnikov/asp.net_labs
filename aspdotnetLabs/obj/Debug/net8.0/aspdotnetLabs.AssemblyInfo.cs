@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("aspdotnetLabs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd6a80b5e7dc5582d7e7d26a05b16a90379df5e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf9d3adb2cb38e999af7dcc6774ebeeed927d727")]
 [assembly: System.Reflection.AssemblyProductAttribute("aspdotnetLabs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("aspdotnetLabs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
