@@ -1,4 +1,5 @@
 using aspdotnetLabs.Models;
+using aspdotnetLabs.Models.Service;
 
 namespace aspdotnetLabs;
 
@@ -7,11 +8,16 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        builder.Services.AddSingleton<IBookService, MemoryBookService>();
-        builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
-
+        
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        
+        builder.Services.AddDbContext<AppDbContext>();
+        builder.Services.AddTransient<IBookService, EFBookService>();
+        
+        builder.Services.AddSingleton<IBookService, MemoryBookService>();
+        
+        builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
 
         var app = builder.Build();
 

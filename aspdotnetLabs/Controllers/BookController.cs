@@ -1,4 +1,5 @@
 using aspdotnetLabs.Models;
+using aspdotnetLabs.Models.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace aspdotnetLabs.Controllers;

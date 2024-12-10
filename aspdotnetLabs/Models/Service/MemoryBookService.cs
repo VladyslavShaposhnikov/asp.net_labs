@@ -1,5 +1,6 @@
-namespace aspdotnetLabs.Models;
+using aspdotnetLabs.Models.Service;
 
+namespace aspdotnetLabs.Models.Service;
 public class MemoryBookService : IBookService
 {
     private Dictionary<int, Book> _books = new Dictionary<int, Book>();

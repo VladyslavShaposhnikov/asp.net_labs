@@ -1,3 +1,5 @@
+using aspdotnetLabs.Models.Service;
+
 namespace aspdotnetLabs.Models;
 
 public class CurrentDateTimeProvider : IDateTimeProvider

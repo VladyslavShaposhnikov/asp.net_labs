@@ -1,4 +1,4 @@
-namespace aspdotnetLabs.Models;
+namespace aspdotnetLabs.Models.Service;
 
 public interface IBookService
 {
