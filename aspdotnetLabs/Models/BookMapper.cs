@@ -14,7 +14,7 @@ public class BookMapper
             Pages = entity.Pages,
             ISBN = entity.ISBN,
             PublishDate = entity.PublishDate,
-            Publisher = entity.Publisher,
+            //Publisher = entity.Publisher,
             Category = entity.Category,
             Created = entity.Created
         };
@@ -30,7 +30,7 @@ public class BookMapper
             Pages = model.Pages,
             ISBN = model.ISBN,
             PublishDate = model.PublishDate,
-            Publisher = model.Publisher,
+            //Publisher = model.Publisher,
             Category = model.Category,
             Created = model.Created
         };
