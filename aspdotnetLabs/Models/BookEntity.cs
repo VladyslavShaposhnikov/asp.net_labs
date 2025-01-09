@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace aspdotnetLabs.Models;
 
@@ -26,6 +29,10 @@ public class BookEntity
     [Display(Name = "Book category")]
     public Category Category { get; set; }
     public DateTime Created { get; set; } = DateTime.Now;
-    public int PublisherId { get; set; }
+    [HiddenInput]
     public PublisherEntity? Publisher { get; set; }
+    [HiddenInput]
+    public int PublisherId { get; set; }
+    [ValidateNever]
+    public List<SelectListItem>? Publishers{ get; set; }
 }

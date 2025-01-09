@@ -8,4 +8,6 @@ public interface IBookService
     List<Book> FindAll();
     Book? FindById(int id);
     bool Contains(int id);
+    List<PublisherEntity> FindAllPublishersForVieModel();
 }
+

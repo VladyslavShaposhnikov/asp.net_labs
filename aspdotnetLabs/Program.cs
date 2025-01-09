@@ -13,9 +13,9 @@ public class Program
         builder.Services.AddControllersWithViews();
         
         builder.Services.AddDbContext<AppDbContext>();
-        builder.Services.AddTransient<IBookService, EFBookService>();
+        //builder.Services.AddTransient<IBookService, EFBookService>();
         
-        builder.Services.AddSingleton<IBookService, MemoryBookService>();
+        //builder.Services.AddSingleton<IBookService, MemoryBookService>();
         
         builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
 

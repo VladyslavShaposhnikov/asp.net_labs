@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace aspdotnetLabs.Models;
 
@@ -27,4 +29,9 @@ public class Book
     public Category Category { get; set; }
     [HiddenInput]
     public DateTime Created { get; set; }
+    [HiddenInput]
+    public int PublisherId { get; set; }
+
+    [ValidateNever]
+    public List<SelectListItem> Publishers{ get; set; }
 }

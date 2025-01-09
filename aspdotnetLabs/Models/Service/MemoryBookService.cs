@@ -44,4 +44,8 @@ public class MemoryBookService : IBookService
     {
         return _books.ContainsKey(id);
     }
+    public List<PublisherEntity> FindAllPublishersForVieModel()
+    {
+        return new List<PublisherEntity>().ToList();
+    }
 }

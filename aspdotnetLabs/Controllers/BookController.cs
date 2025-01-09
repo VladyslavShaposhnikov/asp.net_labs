@@ -1,33 +1,47 @@
 using aspdotnetLabs.Models;
 using aspdotnetLabs.Models.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace aspdotnetLabs.Controllers;
 
 public class BookController : Controller
 {
-    private readonly IBookService _bookService;
-
-    public BookController(IBookService bookService)
+    private readonly AppDbContext _context;
+    
+    public BookController(AppDbContext context)
     {
-        _bookService = bookService;
+        _context = context;
+    }
+    
+    private void InitSelect(BookEntity model)
+    {
+        model.Publishers =  _context
+            .Publishers
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Name })
+            .ToList();
     }
    public IActionResult Index()
-    {
-        return View(_bookService.FindAll());
-    }
+   {
+       return View(_context.Books.ToList());
+   }
     [HttpGet]
     public IActionResult Create()
     {
-        return View();
+        BookEntity model = new BookEntity();
+        InitSelect(model);
+        return View(model);
     }
 
     [HttpPost]
-    public ActionResult Create(Book model)
+    public ActionResult Create(BookEntity model)
     {
         if (ModelState.IsValid)
         {
-            _bookService.Add(model);
+            InitSelect(model);
+            _context.Add(model);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         return View(model);
@@ -36,26 +50,36 @@ public class BookController : Controller
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        return View(_bookService.FindById(id));
+        var model = _context.Books.FirstOrDefault(o => o.Id == id);
+        if (model == null)
+        {
+            return NotFound();
+        }
+        InitSelect(model); // Populate the dropdown
+        return View(model);
     }
     [HttpPost]
-    public IActionResult Edit(Book model)
+    public IActionResult Edit(BookEntity model)
     {
         if (ModelState.IsValid)
         {
-            _bookService.Update(model);
+            _context.Books.Update(model);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         else
         {
-            return View(_bookService.FindById(model.Id));
+            InitSelect(model);
+            return View(_context.Books.FirstOrDefault(o => o.Id == model.Id));
         };
     }
     public IActionResult Details(int id)
     {
-        if (_bookService.Contains(id))
+        if (_context.Books.Any(o => o.Id == id))
         {
-            return View(_bookService.FindById(id));
+            return View(_context.Books
+                .Include(e => e.Publisher)
+                .FirstOrDefault(o => o.Id == id));
         }
         else
         {
@@ -65,9 +89,10 @@ public class BookController : Controller
 
     public IActionResult Delete(int id)
     {
-        if (_bookService.Contains(id))
+        if (_context.Books.Any(o => o.Id == id))
         {
-            _bookService.Delete(id);
+            _context.Books.Remove(_context.Books.FirstOrDefault(o => o.Id == id));
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         return NotFound();

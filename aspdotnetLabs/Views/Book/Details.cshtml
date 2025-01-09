@@ -1,4 +1,4 @@
-@model Book
+@model BookEntity
 
 <!DOCTYPE html>
 
@@ -49,7 +49,7 @@
                 @Model.ISBN
             </td>
             <td>
-                @Model.Publisher
+                @Model.Publisher.Name
             </td>
             <td>
                 @Model.PublishDate

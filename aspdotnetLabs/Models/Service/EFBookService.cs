@@ -45,4 +45,9 @@ public class EFBookService : IBookService
     {
         return _context.Books.Any(e => e.Id == id);
     }
+
+    public List<PublisherEntity> FindAllPublishersForVieModel()
+    {
+        return _context.Publishers.ToList();
+    }
 }

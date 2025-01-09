@@ -1,4 +1,4 @@
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace aspdotnetLabs.Models;
@@ -19,6 +19,8 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Ignore<SelectListGroup>();
+        modelBuilder.Ignore<SelectListItem>();
         modelBuilder.Entity<PublisherEntity>()
             .ToTable("publishers")
             .HasData(

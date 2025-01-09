@@ -1,4 +1,4 @@
-@model Book
+@model BookEntity
 
 <a class="btn btn-info" asp-area="" asp-controller="Book" asp-action="Index">Back home</a>
 <form asp-action="Edit" asp-controller="Book" method="post">
@@ -38,13 +38,17 @@
         </div>
         <input class="form-control" type="date" asp-for="PublishDate"/>
     </div>
-    <div>
-        <label asp-for="Publisher">Publisher</label>
-        <div>
-            <span asp-validation-for="Publisher" class="text-danger"></span>
-        </div>
-        <input class="form-control" type="text" asp-for="Publisher"/>
+    <div class="form-group">
+        <label asp-for="PublisherId"></label>
+        <select class="form-control" asp-for="PublisherId" asp-items="@Model.Publishers"></select>
     </div>
+    @* <div> *@
+    @*     <label asp-for="Publisher">Publisher</label> *@
+    @*     <div> *@
+    @*         <span asp-validation-for="Publisher" class="text-danger"></span> *@
+    @*     </div> *@
+    @*     <input class="form-control" type="text" asp-for="Publisher"/> *@
+    @* </div> *@
     <div>
         <label asp-for="Category"></label>
         <div>
