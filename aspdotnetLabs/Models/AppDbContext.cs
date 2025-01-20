@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace aspdotnetLabs.Models;
 
-public class AppDbContext : DbContext 
+public class AppDbContext : IdentityDbContext<IdentityUser> 
 { 
     public DbSet<BookEntity> Books { get; set; } 
     public DbSet<PublisherEntity> Publishers { get; set; }
@@ -19,6 +21,82 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+        
+        string ADMIN_ID = Guid.NewGuid().ToString();
+        string ROLE_ID = Guid.NewGuid().ToString();
+        
+        string USER_ID = Guid.NewGuid().ToString();
+        string USER_ROLE_ID = Guid.NewGuid().ToString();
+
+// dodanie roli administratora
+        modelBuilder.Entity<IdentityRole>()
+            .HasData(new IdentityRole
+        {
+            Name = "admin",
+            NormalizedName = "ADMIN",
+            Id = ROLE_ID,
+            ConcurrencyStamp = ROLE_ID
+        },
+        new IdentityRole()
+        {
+            Id = USER_ROLE_ID,
+            Name = "user",
+            NormalizedName = "USER",
+            ConcurrencyStamp = USER_ROLE_ID
+        });
+
+// utworzenie administratora jako użytkownika
+        var admin = new IdentityUser()
+        {
+            Id = ADMIN_ID,
+            Email = "adam@wsei.edu.pl",
+            EmailConfirmed = true,
+            UserName = "Adam",
+            NormalizedUserName = "ADAM",
+            NormalizedEmail = "ADAM@WSEI.EDU.PL"
+        };
+        
+        var user = new IdentityUser()
+        {
+            Id = USER_ID,
+            Email = "karol@wsei.edu.pl",
+            NormalizedEmail = "karol@wsei.edu.pl".ToUpper(),
+            UserName = "Karol",
+            NormalizedUserName = "Karol".ToUpper(),
+            EmailConfirmed = true
+        };
+
+// haszowanie hasła, najlepiej wykonać to poza programem i zapisać gotowy
+// PasswordHash
+        PasswordHasher<IdentityUser> ph = new PasswordHasher<IdentityUser>();
+        
+        admin.PasswordHash = ph.HashPassword(admin, "1234abcd!@#$ABCD");
+        user.PasswordHash = ph.HashPassword(user, "abcd@");
+
+// zapisanie użytkownika
+        modelBuilder.Entity<IdentityUser>()
+            .HasData(admin, user);
+        modelBuilder.Entity<IdentityUserRole<string>>()
+            .HasData(
+                new IdentityUserRole<string>
+                {
+                    RoleId = ROLE_ID,
+                    UserId = admin.Id
+                },
+                new IdentityUserRole<string>
+                {
+                    RoleId = USER_ROLE_ID,
+                    UserId = admin.Id
+                },
+                new IdentityUserRole<string>
+                {
+                    RoleId = USER_ROLE_ID,
+                    UserId = user.Id
+                }
+            
+            );
+        
         modelBuilder.Ignore<SelectListGroup>();
         modelBuilder.Ignore<SelectListItem>();
         modelBuilder.Entity<PublisherEntity>()

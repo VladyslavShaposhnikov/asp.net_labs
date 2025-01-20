@@ -1,11 +1,13 @@
 using aspdotnetLabs.Models;
 using aspdotnetLabs.Models.Service;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace aspdotnetLabs.Controllers;
-
+[Authorize(Roles = "admin")]
 public class BookController : Controller
 {
     private readonly AppDbContext _context;
@@ -22,6 +24,7 @@ public class BookController : Controller
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Name })
             .ToList();
     }
+    [AllowAnonymous]
    public IActionResult Index()
    {
        return View(_context.Books.ToList());
